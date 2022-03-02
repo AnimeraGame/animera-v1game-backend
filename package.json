@@ -13,6 +13,7 @@
     "connect-multiparty": "^2.2.0",
     "cors": "^2.8.4",
     "cron": "^1.8.2",
+    "db-migrate-mysql": "^2.2.0",
     "debug": "^2.6.6",
     "dotenv": "^6.2.0",
     "ejs": "^2.6.1",
