@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Reset Password</title>
+    <style>
+    body {
+        font-family: 'Nunito';
+    }
+
+    h4 {
+        font-size: 28px;
+        padding: 10px 10px;
+        
+    }
+
+    .vertical-center {
+        max-width: 600px;
+        margin: 30px auto;
+        border: 1px solid #ddd;
+        box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.05);
+        border-radius: 2px;
+    }
+
+  
+
+    label {
+        box-sizing: border-box;
+        display: block;
+        padding: 10px 20px;
+    }
+
+    input {
+        padding: 10px 20px;
+        box-sizing: border-box;
+        background: #eee;
+        border: 0;
+        display: block;
+        width: 100%;
+        background: #fff;
+        border-bottom: 1px solid #eee;
+        font-family: Nunito;
+        font-size: 16px;
+    }
+</style>
+</head>
+
+<body>
+    <div class="vertical-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 well">
+                   
+                        <h4 class="text-center"> <center>Reset Password </h4>
+                        <form action="" method='POST' class="submit-pwd" enctype="multipart/form-data" > 
+                            <fieldset>
+                                <div class="form-group" >
+                                    <label>Enter Password: </label>
+                                    <input type="password" pattern=".{5,50}" required title="password must contain 5 characters minimum. " name="pwd" class="form-control" placeholder="Password " />
+                                    <!-- style="margin-left: 25px"  -->
+                                </div>
+                                <div class="form-group" >
+                                    <label>Confirm Password: </label>
+                                    <input type="password" required title="must match with password." name="cPwd" class="form-control" placeholder="Confirm Password "  />
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" value="Submit" class="btn btn-primary btn-default" />
+                                </div>
+                            </fieldset>
+                        </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

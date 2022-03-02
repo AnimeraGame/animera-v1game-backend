@@ -1,0 +1,20 @@
+{
+"development": {
+        "host": "localhost",
+        "user": "root",
+        "password": "",
+        "database": "apex_dev"
+    },
+    "testing": {
+        "host": "localhost",
+        "user": "root",
+        "password": "",
+        "database": "apex_dev"
+    },
+    "production": {
+        "host": "localhost",
+        "user": "root",
+        "password": "",
+        "database": "apex_prod"
+    }
+}
