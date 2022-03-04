@@ -1,18 +1,11 @@
-App     : SwiftSpar
+App     : Marsverse
 Version : 1.0.0
-Author  : Shubham Anand
-email   : anandshubham.emilence@gmail.com/shubham@emilence.com
+Author  : Vilayhong Anousone
+email   : sarlongda514@gmail.com
 
-baseUrl: https://44.227.97.173:3000/swiftSpar/
-uploadPath: https://s3-us-west-2.amazonaws.com/swift-spar/
-readmePath: https://dev.swiftspar.com:3000/swiftSpar/readme/readme.txt
-
-basicAuth credentials:
-    UserName: swiftspar@emilence.com
-    Password: Emilence@1
 
 Notes:
-    --> Send token in header in all API's(except signup, login and forgotPassword API's) like:
+    --> Send token in header in all API's(except signup, login) like:
     ss_token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjExLCJpYXQiOjE1MzExMjM3NDAsImV4cCI6MTUzMzcxNTc0MH0.ARupD0Y3bvzvCVDHeZtTFNU_6cFjNmwTMrqsIjD_C7M
     
     --> send languageCode as query parameter in GET, DELETE type APIs and in body in PUT, POST APIs
@@ -42,17 +35,10 @@ Header : Formdata
 Request URL: baseurl/user_auth/sign_up   
 
 Request Params : {
-    first_name*
-	last_name
-	email*
-	password*
-	gender
-	dob
-	user_lat
-	user_long
-	zipcode
+    username*
+	wallet_address
 	user_pic,
-    installed_app_version
+    no_hrs_played
 }
 
 
@@ -61,69 +47,12 @@ Response :
     "status": 200,
     "message": "Registration successful.",
     "data": {
-        "user_id": 46,
-        "first_name": "Shubham",
-        "last_name": "",
-        "email": "shubham@emilence.com",
-        "password": "c4ca4238a0b923820dcc509a6f75849b",
+        "user_id": 1,
+        "username": "test1",
+        "wallet_address": "test1",
         "user_pic": "",
-        "user_multiple_pics": [],
-        "user_pic2": "",
-        "user_pic3": "",
-        "user_lat": "",
-        "user_long": "",
-        "distance": "",
-        "google_id": "",
-        "reset_password": "",
-        "facebook_id": "",
-        "twitter_id": "",
-        "gender": "",
-        "dob": "",
-        "dob_count": 0,
-        "dob_max_count": 3,
-        "favourite_team": "",
-        "favourite_team_id": "",
-        "favourite_brand_id": "",
-        "favourite_events": "",
-        "favourite_fans": "",
-        "shoe_size": "",
-        "pant_size": "",
-        "shirt_size": "",
-        "hat_size": "",
-        "tracksuit_size": "",
-        "device_token": "",
-        "device_type": "0",
-        "type": "personal",
-        "randomCode": "H5LLH",
-        "random_valid_up_tp": "",
-        "verifyAccount": "not verified",
-        "organization_type": "",
-        "user_country": "",
-        "user_state": "",
-        "user_city": "",
-        "zipcode": "",
-        "user_available_days": "",
-        "badge_count": 0,
-        "user_stripe_act": "",
-        "user_org_paid": 0,
-        "user_status": 1,
-        "user_find_me": 0,
-        "customer_id_stripe": "",
-        "installed_app_version": "",
-        "build_no": "",
-        "os_version": "",
-        "user_language": "",
-        "phone_country_code": "",
-        "phone_no": "",
-        "user_networks": "",
-        "onboarding_country_code": "",
-        "user_onboarding_country": "",
-        "onboarding_phone_no": "",
-        "age_visibility": 1,
-        "user_created_on": "2020-01-10T10:40:29.000Z",
-        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0NiwiaWF0IjoxNTc4NjUyODI5LCJleHAiOjE1ODEyNDQ4Mjl9.XUxyeOr3jq7pXiAWC0W7nEVlItpzZGVSYiQ7UnHFISc",
-        "share_count": 0,
-        "user_multiple_pics_count": "6"
+        "no_hrs_played": null,
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJpYXQiOjE2NDYzNjIwNDIsImV4cCI6MTY0ODk1NDA0Mn0.a0ICLY4eBLztlzfTOXH8xFqgodPHQa6VvGl8xYZUDnM"
     }
 }
 
@@ -142,81 +71,21 @@ Request URL: baseurl/user_auth/login
 
 Request Params :
 {
-	email*
-	password*
+	wallet_address*
 }
 
 
 Response : 
 {
     "status": 200,
-    "message": "Please verify your account.",
+    "message": "Logged in successfully.",
     "data": {
-        "user_id": 46,
-        "first_name": "Shubham",
-        "last_name": "",
-        "email": "shubham@emilence.com",
-        "password": "c4ca4238a0b923820dcc509a6f75849b",
+        "user_id": 1,
+        "username": "test1",
+        "wallet_address": "test1",
         "user_pic": "",
-        "user_multiple_pics": [],
-        "user_pic2": "",
-        "user_pic3": "",
-        "user_lat": "",
-        "user_long": "",
-        "distance": "",
-        "google_id": "",
-        "reset_password": "",
-        "facebook_id": "",
-        "twitter_id": "",
-        "gender": "",
-        "dob": "",
-        "dob_count": 0,
-        "dob_max_count": 3,
-        "favourite_team": "",
-        "favourite_team_id": "",
-        "favourite_brand_id": "",
-        "favourite_events": "",
-        "favourite_fans": "",
-        "shoe_size": "",
-        "pant_size": "",
-        "shirt_size": "",
-        "hat_size": "",
-        "tracksuit_size": "",
-        "device_token": "",
-        "device_type": "0",
-        "type": "personal",
-        "randomCode": "H5LLH",
-        "random_valid_up_tp": "",
-        "verifyAccount": "not verified",
-        "organization_type": "",
-        "user_country": "",
-        "user_state": "",
-        "user_city": "",
-        "zipcode": "",
-        "user_available_days": "",
-        "badge_count": 0,
-        "user_stripe_act": "",
-        "user_org_paid": 0,
-        "user_status": 1,
-        "user_find_me": 0,
-        "customer_id_stripe": "",
-        "installed_app_version": "",
-        "build_no": "",
-        "os_version": "",
-        "user_language": "",
-        "phone_country_code": "",
-        "phone_no": "",
-        "user_networks": "",
-        "onboarding_country_code": "",
-        "user_onboarding_country": "",
-        "onboarding_phone_no": "",
-        "age_visibility": 1,
-        "user_created_on": "2020-01-10T10:40:29.000Z",
-        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo0NiwiaWF0IjoxNTc4NjUzMjI0LCJleHAiOjE1ODEyNDUyMjR9.UQ5TYEb3XdyVMfxBH6j3-Gbk7WRc7aT6YRICT2cHMSI",
-        "temp_resolve": 2,
-        "package_bought": 0,
-        "returning_user": 1,
-        "user_multiple_pics_count": "6"
+        "no_hrs_played": null,
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJpYXQiOjE2NDYzNjQwNDYsImV4cCI6MTY0ODk1NjA0Nn0.Ot0Qr5hfhqjyUfv7w_jY9T_B2YQH80mgi-8VJSc0-oM"
     }
 }
 

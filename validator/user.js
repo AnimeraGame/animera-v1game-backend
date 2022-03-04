@@ -20,24 +20,6 @@ let userValidator = {
         }
     },
 
-
-    availableDays : (req, res, next) => {
-        const schema = joi.object().keys({
-            
-            values: joi.string().required(),
-
-        }).unknown(true);
-
-        let validateBody = joi.validate(req.body, schema);
-        if (validateBody.error) {
-            let languageCode = req.query.language;
-            let response = responses.parameterMissingResponse(res, languageCode, validateBody.error.details[0].path[0]);
-            return res.status(200).send(JSON.stringify(response));
-        } else {
-            next();
-        }
-    },
-
     deleteAvailableDays : (req, res, next) => {
         const schema = joi.object().keys({
             
@@ -59,23 +41,6 @@ let userValidator = {
             
             device_token: joi.string().required(),
             device_type: joi.string().required(),
-
-        }).unknown(true);
-
-        let validateBody = joi.validate(req.body, schema);
-        if (validateBody.error) {
-            let languageCode = req.query.language;
-            let response = responses.parameterMissingResponse(res, languageCode, validateBody.error.details[0].path[0]);
-            return res.status(200).send(JSON.stringify(response));
-        } else {
-            next();
-        }
-    },
-
-    insertFeedback : (req, res, next) => {
-        const schema = joi.object().keys({
-            
-            feedback_text: joi.string().required(),
 
         }).unknown(true);
 

@@ -58,8 +58,6 @@ const actionCompleteResponse = (res, languageCode, data, msg, successCode) => {
         ),
         data: data || {}
     };
-    // logger.response(JSON.stringify(response));
-    // res.status(responseMessageFlags.ACTION_COMPLETE).send(JSON.stringify(response));
     res.status(responseMessageFlags.ACTION_COMPLETE).send(response);
 };
 
@@ -80,6 +78,7 @@ const sendError = (res, languageCode, data, msg, errCode) => {
     switch (errCode) {
         case responseMessageCode.PARAMETER_MISSING:
         case responseMessageCode.INCORRECT_EMAIL_PASSWORD:
+        case responseMessageCode.INCORRECT_WALLET_ADDRESS:
         case responseMessageCode.DISABLED_ACCOUNT:
         case responseMessageCode.INVALID_CODE:
         case responseMessageCode.EMAIL_NOT_EXISTS:
@@ -145,8 +144,6 @@ const sendError = (res, languageCode, data, msg, errCode) => {
         ),
         data: data || {}
     };
-    // logger.response(JSON.stringify(response));
-    // res.status(statusCode).send(JSON.stringify(response));
     res.status(statusCode).send(response);
 };
 
@@ -166,8 +163,6 @@ const parameterMissingResponse = (res, languageCode, err, data) => {
         ),
         data: data || {}
     };
-    // logger.response(JSON.stringify(response));
-    // res.status(responseMessageFlags.BAD_REQUEST).send(JSON.stringify(response));
     res.status(responseMessageFlags.BAD_REQUEST).send(response);
 }
 

@@ -126,7 +126,7 @@ routes.post('/login', async function (req, res) {
             rows[0].token = token;
             return responses.actionCompleteResponse(res, languageCode, rows[0], "LOGIN_SUCCESSFULLY", constants.responseMessageCode.LOGIN_SUCCESSFULLY);
         } else {
-            return responses.sendError(res, languageCode, {}, "INCORRECT_WALLET_ADDRESS", constants.responseMessageCode.INCORRECT_EMAIL_PASSWORD);
+            return responses.sendError(res, languageCode, {}, "INCORRECT_WALLET_ADDRESS", constants.responseMessageCode.INCORRECT_WALLET_ADDRESS);
         }
 
     } catch (err) {
