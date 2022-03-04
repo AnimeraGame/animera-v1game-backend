@@ -54,23 +54,6 @@ let userValidator = {
         }
     },
 
-    getTeamByActivity : (req, res, next) => {
-        const schema = joi.object().keys({
-            
-            activity_id: joi.string().required(),
-
-        }).unknown(true);
-
-        let validateBody = joi.validate(req.query, schema);
-        if (validateBody.error) {
-            let languageCode = req.query.language;
-            let response = responses.parameterMissingResponse(res, languageCode, validateBody.error.details[0].path[0]);
-            return res.status(200).send(JSON.stringify(response));
-        } else {
-            next();
-        }
-    },
-
     shareApp : (req, res, next) => {
         const schema = joi.object().keys({
             
