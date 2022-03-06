@@ -5,10 +5,10 @@ const logger = require('../helperFunction/logger.js');
 exports.mysqlQueryPromise = mysqlQueryPromise;
 
 let dbConfig = {
-    host: environmentConfig.host,
-    user: environmentConfig.user,
-    password: environmentConfig.password,
-    database: environmentConfig.database,
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
     multipleStatements: true,
 };
 

@@ -114,56 +114,6 @@ routes.post('/login', adminValidator.login, async function (req, res) {
     }
 });
 
-
-// Send OTP to admin API
-routes.post('/send_otp', authenticateController.data.auth_route, async function (req, res) {
-
-    let languageCode = req.body.language;
-    try {
-        
-        let userId = authenticateController.data.decode(req.headers['ss_token']);
-        let userData = await commonFunctions.getSingleRowNew(APIRef, 'admin', 'admin_id', userId, 'otp send');
-        sendOTP(userData);
-        return responses.actionCompleteResponse(res, languageCode, {}, "ACTION_COMPLETE", constants.responseMessageCode.ACTION_COMPLETE);
-    } catch (err) {
-        console.log('Caught an error!', err);
-        return responses.sendError(res, languageCode, {}, "", 0);
-    }
-});
-
-
-// Verify admin OTP API
-routes.post('/verify_otp', adminValidator.verifyOTP, authenticateController.data.auth_route, async function (req, res) {
-
-    let languageCode = req.body.language;
-    try {
-        
-        let userId = authenticateController.data.decode(req.headers['ss_token']);
-        let userData = await commonFunctions.getSingleRowNew(APIRef, 'admin', 'admin_id', userId, 'otp send');
-        if (userData[0].phone_otp == req.body.phone_otp && userData[0].email_otp == req.body.email_otp) {
-            let updateObject = {
-                email_otp: '',
-                phone_otp: ''
-            }
-            // Reset OTP after using
-            await commonFunctions.updateSingleRowNew(APIRef, 'admin', updateObject, 'admin_id', userData[0].admin_id, 'otp send');
-
-            let data = {
-                admin_id: userData[0].admin_id,
-                username: userData[0].username,
-                admin_phone: userData[0].admin_phone
-            }
-            return responses.actionCompleteResponse(res, languageCode, data, "ACTION_COMPLETE", constants.responseMessageCode.ACTION_COMPLETE);
-        } else {
-            return responses.sendError(res, languageCode, {}, "INVALID_OTP", constants.responseMessageCode.INVALID_OTP);
-        }
-    } catch (err) {
-        console.log('Caught an error!', err);
-        return responses.sendError(res, languageCode, {}, "", 0);
-    }
-});
-
-
 // Get all users API
 routes.get('/user', authenticateController.data.auth_route, async function (req, res) {
 
@@ -204,49 +154,6 @@ routes.get('/filterUser', authenticateController.data.auth_route, async function
         return responses.sendError(res, languageCode, {}, "", 0);
     }
 });
-
-
-// Verify admin API
-routes.post('/verify', adminValidator.verify, authenticateController.data.auth_route, async function (req, res) {
-
-    let languageCode = req.body.language;
-    try {
-        
-        let userId = authenticateController.data.decode(req.headers['ss_token']);
-        let userData = await commonFunctions.getSingleRowNew(APIRef, 'admin', 'admin_id', userId, 'Get admin');
-        if (userData[0].auth_string) {
-            // Verify Admin
-            const verified = speakeasy.totp.verify({
-                secret: userData[0].auth_string,
-                encoding: 'base32',
-                token: req.body.token
-            });
-            if (verified) {
-                const adminData = {
-                    admin_id: userData[0].admin_id,
-                    auth_verified : 1,
-                    email: userData[0].username
-                };
-
-                responses.actionCompleteResponse(res, languageCode, adminData, "ACTION_COMPLETE", constants.responseMessageCode.ACTION_COMPLETE);
-
-                const updateObject = {
-                    auth_verified: 1
-                }
-                await commonFunctions.updateSingleRowNew(APIRef, 'admin', updateObject, 'admin_id', userData[0].admin_id, 'update');
-                return;
-            } else {
-                return responses.sendError(res, languageCode, {}, "ERROR_IN_EXECUTION", constants.responseMessageCode.ERROR_IN_EXECUTION);
-            }
-        } else {
-            return responses.sendError(res, languageCode, {}, "ERROR_IN_EXECUTION", constants.responseMessageCode.ERROR_IN_EXECUTION);
-        }
-    } catch (err) {
-        console.log('Caught an error!', err);
-        return responses.sendError(res, languageCode, {}, "", 0);
-    }
-});
-
 
 // Change user status API
 routes.post('/changeUserStatus', adminValidator.disableUser, authenticateController.data.auth_route, async function (req, res) {
