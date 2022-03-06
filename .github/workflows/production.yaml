@@ -28,10 +28,8 @@ jobs:
         id: build-n-push-image
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          NODE_ENV: ${{ secrets.PROD_NODE_ENV }}
         shell: bash
         run: |
-          echo $NODE_ENV | base64 -d > .env
           docker build -t $ECR_REGISTRY/$GITHUB_REPOSITORY_NAME_PART_SLUG:$GITHUB_REF_SLUG-$GITHUB_RUN_NUMBER .
           docker push $ECR_REGISTRY/$GITHUB_REPOSITORY_NAME_PART_SLUG:$GITHUB_REF_SLUG-$GITHUB_RUN_NUMBER
           echo $ECR_REGISTRY/$GITHUB_REPOSITORY_NAME_PART_SLUG:$GITHUB_REF_SLUG-$GITHUB_RUN_NUMBER > image-name.txt
