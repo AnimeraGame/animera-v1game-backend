@@ -8,6 +8,7 @@ exports.responseMessages = {
     ERROR_IN_EXECUTION: 'An error occurred. Please try again.',
     INVALID_ACCESS_TOKEN: 'Your session expired. Please login again.',
     INCORRECT_EMAIL_PASSWORD: 'Username or password incorrect. Please try again.',
+    INCORRECT_WALLET_ADDRESS: 'Wallet Address incorrect. Please try again.',
     PASSWORD_CHANGED_SUCCESSFULLY: 'Your password has been updated.',
     WALLET_ALREADY_EXISTS: 'Wallet already exists. Please login with your wallet address',
     EMAIL_ALREADY_EXISTS: 'Email already exists. Please login or use forgot password feature.',
