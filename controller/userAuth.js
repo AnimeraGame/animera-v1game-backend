@@ -37,21 +37,11 @@ routes.post('/sign_up', Upload, async function (req, res) {
         return res.status(200).send(JSON.stringify(response));
     }
 
-    let image;
-    if (!req.files.user_pic || req.files.user_pic == undefined) {
-        image = '';
-    } else {
-        image = 'user/' + req.files.user_pic[0].key;
-    }
-
-    let userMultiplePics = [];
-    if (image) {
-        userMultiplePics.push({ id: 1, image: image, primary: 1 });
-    }
-
     let userDetails = req.body;
     let username = userDetails.username ? userDetails.username : '';
     let wallet_address = userDetails.wallet_address ? userDetails.wallet_address : '';
+    let user_pic = userDetails.user_pic ? userDetails.user_pic : '';
+    let user_avatar_model = userDetails.user_avatar_model ? userDetails.user_avatar_model : '';
 
     try {
         const singleUser = {
@@ -71,7 +61,8 @@ routes.post('/sign_up', Upload, async function (req, res) {
             let users = {
                 username: username,
                 wallet_address: wallet_address,
-                user_pic: image,
+                user_pic: user_pic,
+                user_avatar_model: user_avatar_model,
             };
 
             let userRow = await databaseServices.insertSingleRow('user', users, 'sign up');
