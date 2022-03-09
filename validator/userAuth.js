@@ -14,6 +14,14 @@ let userValidator = {
         return validateBody;
         
     },
+    update: (body) => {
+        const schema = joi.object().keys({
+            wallet_address: joi.string().required(),
+        }).unknown(true);
+
+        let validateBody = joi.validate(body, schema);
+        return validateBody;   
+    },
 
     login: (body) => {
         const schema = joi.object().keys({

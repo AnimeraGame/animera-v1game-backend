@@ -142,5 +142,54 @@ routes.get('/search', userValidator.searchUser, async function (req, res) {
 
 });
 
+// Update User API
+routes.put('/update', async function(req, res) {
+    const languageCode = req.query.language;
+    logger.request("API", req.protocol + '://' + req.get('host') + req.originalUrl);
+    logger.request("Request Body", req.body);
+    logger.request("Request Query", req.query);
+    let userDetails = req.body;
+
+    let validateBody = userValidator.update(req.body);
+
+    if (validateBody.error) {
+        let response = responses.parameterMissingResponse(res, languageCode, validateBody.error.details[0].path[0]);
+        return res.status(200).send(JSON.stringify(response));
+    }
+
+    let username = userDetails.username ? userDetails.username : '';
+    let wallet_address = userDetails.wallet_address ? userDetails.wallet_address : '';
+    let user_pic = userDetails.user_pic ? userDetails.user_pic : '';
+    let user_avatar_model = userDetails.user_avatar_model ? userDetails.user_avatar_model : '';
+    
+    try {
+
+        // Login With Email And Password        
+
+        let rows = await databaseServices.getSingleRow('user', 'wallet_address', wallet_address, 'update');
+
+        if (rows.length > 0) {
+            // Unverified Account Login
+            let updateObject = {
+                wallet_address: wallet_address,
+            }
+
+            if(username != '') updateObject.username = username;
+            if(user_pic != '') updateObject.user_pic = user_pic;
+            if(user_avatar_model != '') updateObject.user_avatar_model = user_avatar_model;
+            
+            await databaseServices.updateSingleRow('user', updateObject, 'wallet_address', wallet_address, 'update');
+            let res_row = await databaseServices.getSingleRow('user', 'wallet_address', wallet_address, 'update');
+            return responses.actionCompleteResponse(res, languageCode, res_row[0], "PROFILE_UPDATED", constants.responseMessageCode.PROFILE_UPDATED);
+        } else {
+            return responses.sendError(res, languageCode, {}, "INCORRECT_WALLET_ADDRESS", constants.responseMessageCode.INCORRECT_WALLET_ADDRESS);
+        }
+
+    } catch (err) {
+        console.log('Caught an error!', err);
+        return responses.sendError(res, languageCode, {}, "", 0);
+    }
+})
+
 
 module.exports = routes;
