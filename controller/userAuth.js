@@ -137,7 +137,6 @@ routes.post('/login', Upload, async function (req, res) {
         let rows = await databaseServices.getSingleRow('user', 'wallet_address', wallet_address, 'login');
 
         if (rows.length > 0) {
-            // Unverified Account Login
             let payload_obj = {
                 user_id: rows[0].user_id
             };
@@ -209,13 +208,9 @@ routes.put('/update_profile', Upload, async function(req, res) {
     let user_avatar_model = userDetails.user_avatar_model ? userDetails.user_avatar_model : '';
     
     try {
-
-        // Login With Email And Password        
-
         let rows = await databaseServices.getSingleRow('user', 'wallet_address', wallet_address, 'update');
 
         if (rows.length > 0) {
-            // Unverified Account Login
             let updateObject = {
                 wallet_address: wallet_address,
             }
