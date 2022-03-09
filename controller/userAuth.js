@@ -49,7 +49,16 @@ routes.post('/sign_up', Upload, async function (req, res) {
         }
         let rows = await userAuth.getSingleUser(singleUser);
         if (rows.length > 0) {
-            return responses.sendError(res, '', {}, "WALLET_ALREADY_EXISTS", constants.responseMessageCode.WALLET_ALREADY_EXISTS);
+            let fake_user = {
+                user_id: 0,
+                username: "",
+                wallet_address: "",
+                user_pic: "",
+                no_hrs_played: null,
+                user_avatar_model: "",
+                token: ""
+            };
+            return responses.sendError(res, '', fake_user, "WALLET_ALREADY_EXISTS", constants.responseMessageCode.WALLET_ALREADY_EXISTS);
         } else {
             let random = randomstring.generate({
                 length: 5,
@@ -81,7 +90,16 @@ routes.post('/sign_up', Upload, async function (req, res) {
 
     } catch (err) {
         console.log('Caught an error!', err);
-        return responses.sendError(res, languageCode, {}, "", 0);
+        let fake_user = {
+            user_id: 0,
+            username: "",
+            wallet_address: "",
+            user_pic: "",
+            no_hrs_played: null,
+            user_avatar_model: "",
+            token: ""
+        };
+        return responses.sendError(res, languageCode, fake_user, "", 0);
     }
 
 });
@@ -117,12 +135,30 @@ routes.post('/login', async function (req, res) {
             rows[0].token = token;
             return responses.actionCompleteResponse(res, languageCode, rows[0], "LOGIN_SUCCESSFULLY", constants.responseMessageCode.LOGIN_SUCCESSFULLY);
         } else {
-            return responses.sendError(res, languageCode, {}, "INCORRECT_WALLET_ADDRESS", constants.responseMessageCode.INCORRECT_WALLET_ADDRESS);
+            let fake_user = {
+                user_id: 0,
+                username: "",
+                wallet_address: "",
+                user_pic: "",
+                no_hrs_played: null,
+                user_avatar_model: "",
+                token: ""
+            };
+            return responses.sendError(res, languageCode, fake_user, "INCORRECT_WALLET_ADDRESS", constants.responseMessageCode.INCORRECT_WALLET_ADDRESS);
         }
 
     } catch (err) {
         console.log('Caught an error!', err);
-        return responses.sendError(res, languageCode, {}, "", 0);
+        let fake_user = {
+            user_id: 0,
+            username: "",
+            wallet_address: "",
+            user_pic: "",
+            no_hrs_played: null,
+            user_avatar_model: "",
+            token: ""
+        };
+        return responses.sendError(res, languageCode, fake_user, "", 0);
     }
 
 });
@@ -182,12 +218,30 @@ routes.put('/update_profile', async function(req, res) {
             let res_row = await databaseServices.getSingleRow('user', 'wallet_address', wallet_address, 'update');
             return responses.actionCompleteResponse(res, languageCode, res_row[0], "PROFILE_UPDATED", constants.responseMessageCode.PROFILE_UPDATED);
         } else {
-            return responses.sendError(res, languageCode, {}, "INCORRECT_WALLET_ADDRESS", constants.responseMessageCode.INCORRECT_WALLET_ADDRESS);
+            let fake_user = {
+                user_id: 0,
+                username: "",
+                wallet_address: "",
+                user_pic: "",
+                no_hrs_played: null,
+                user_avatar_model: "",
+                token: ""
+            };
+            return responses.sendError(res, languageCode, fake_user, "INCORRECT_WALLET_ADDRESS", constants.responseMessageCode.INCORRECT_WALLET_ADDRESS);
         }
 
     } catch (err) {
         console.log('Caught an error!', err);
-        return responses.sendError(res, languageCode, {}, "", 0);
+        let fake_user = {
+            user_id: 0,
+            username: "",
+            wallet_address: "",
+            user_pic: "",
+            no_hrs_played: null,
+            user_avatar_model: "",
+            token: ""
+        };
+        return responses.sendError(res, languageCode, fake_user, "", 0);
     }
 })
 
