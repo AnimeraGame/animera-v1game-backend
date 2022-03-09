@@ -153,7 +153,8 @@ routes.post('/login', Upload, async function (req, res) {
                 user_avatar_model: "",
                 token: ""
             };
-            return responses.sendError(res, languageCode, fake_user, "INCORRECT_WALLET_ADDRESS", constants.responseMessageCode.INCORRECT_WALLET_ADDRESS);
+            return responses.actionCompleteResponse(res, languageCode, fake_user, "INCORRECT_WALLET_ADDRESS", constants.responseMessageCode.INCORRECT_WALLET_ADDRESS);
+            //return responses.sendError(res, languageCode, fake_user, "INCORRECT_WALLET_ADDRESS", constants.responseMessageCode.INCORRECT_WALLET_ADDRESS);
         }
 
     } catch (err) {
