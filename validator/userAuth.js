@@ -14,7 +14,7 @@ let userValidator = {
         return validateBody;
         
     },
-    update: (body) => {
+    update_profile: (body) => {
         const schema = joi.object().keys({
             wallet_address: joi.string().required(),
         }).unknown(true);

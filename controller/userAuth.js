@@ -143,14 +143,14 @@ routes.get('/search', userValidator.searchUser, async function (req, res) {
 });
 
 // Update User API
-routes.put('/update', async function(req, res) {
+routes.put('/update_profile', async function(req, res) {
     const languageCode = req.query.language;
     logger.request("API", req.protocol + '://' + req.get('host') + req.originalUrl);
     logger.request("Request Body", req.body);
     logger.request("Request Query", req.query);
     let userDetails = req.body;
 
-    let validateBody = userValidator.update(req.body);
+    let validateBody = userValidator.update_profile(req.body);
 
     if (validateBody.error) {
         let response = responses.parameterMissingResponse(res, languageCode, validateBody.error.details[0].path[0]);
