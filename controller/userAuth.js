@@ -17,11 +17,22 @@ const {
 } = require('../services/baseService.js');
 
 
-let Upload = upload.fields([{
-    name: 'user_pic'
-}, {
-    name: 'user_multiple_pics',
-}]);
+let Upload = upload.fields(
+    [
+        {
+            name: 'wallet_address'
+        }, 
+        {
+            name: 'username',
+        },
+        {
+            name: 'user_pic'
+        },
+        {
+            name: 'user_avatar_model'
+        }, 
+    ]
+);
 
 // Signup API
 routes.post('/sign_up', Upload, async function (req, res) {
@@ -33,6 +44,7 @@ routes.post('/sign_up', Upload, async function (req, res) {
     let validateBody = userValidator.signup(req.body);
 
     if (validateBody.error) {
+        console.log("Signup Error: ", validateBody.error);
         let response = responses.parameterMissingResponse(res, languageCode, validateBody.error.details[0].path[0]);
         return res.status(200).send(JSON.stringify(response));
     }
@@ -105,25 +117,23 @@ routes.post('/sign_up', Upload, async function (req, res) {
 });
 
 // Login API
-routes.post('/login', async function (req, res) {
+routes.post('/login', Upload, async function (req, res) {
 
     const languageCode = req.query.language;
     logger.request("API", req.protocol + '://' + req.get('host') + req.originalUrl);
     logger.request("Request Body", req.body);
     logger.request("Request Query", req.query);
-    let userDetails = req.body;
+    let validateBody = userValidator.login(req.body);
 
+    if (validateBody.error) {
+        let response = responses.parameterMissingResponse(res, languageCode, validateBody.error.details[0].path[0]);
+        return res.status(200).send(JSON.stringify(response));
+    }
+
+    let userDetails = req.body;
     let wallet_address = userDetails.wallet_address ? userDetails.wallet_address : '';
 
     try {
-
-        // Login With Email And Password
-        let validateBody = userValidator.login(req.body);
-        if (validateBody.error) {
-            let response = responses.parameterMissingResponse(res, languageCode, validateBody.error.details[0].path[0]);
-            return res.status(200).send(JSON.stringify(response));
-        }
-
         let rows = await databaseServices.getSingleRow('user', 'wallet_address', wallet_address, 'login');
 
         if (rows.length > 0) {
@@ -179,7 +189,7 @@ routes.get('/search', userValidator.searchUser, async function (req, res) {
 });
 
 // Update User API
-routes.put('/update_profile', async function(req, res) {
+routes.put('/update_profile', Upload, async function(req, res) {
     const languageCode = req.query.language;
     logger.request("API", req.protocol + '://' + req.get('host') + req.originalUrl);
     logger.request("Request Body", req.body);
