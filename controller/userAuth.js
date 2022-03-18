@@ -154,7 +154,6 @@ routes.post('/login', Upload, async function (req, res) {
                 token: ""
             };
             return responses.actionCompleteResponse(res, languageCode, fake_user, "INCORRECT_WALLET_ADDRESS", constants.responseMessageCode.INCORRECT_WALLET_ADDRESS);
-            //return responses.sendError(res, languageCode, fake_user, "INCORRECT_WALLET_ADDRESS", constants.responseMessageCode.INCORRECT_WALLET_ADDRESS);
         }
 
     } catch (err) {
