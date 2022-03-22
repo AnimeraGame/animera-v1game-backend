@@ -40,8 +40,9 @@ routes.get('/get_object_nearby', objectValidator.getObjectNearby, async (req, re
         let rot_x = data.rotation_x ? data.rotation_x : '';
         let rot_y = data.rotation_y ? data.rotation_y : '';
         let rot_z = data.rotation_z ? data.rotation_z : '';
+        let distance = data.distance ? data.distance : 10;
 
-        let objectrows = await object.getObjectNearby(pos_x, pos_y, pos_z, rot_x, rot_y, rot_z);
+        let objectrows = await object.getObjectNearby(pos_x, pos_y, pos_z, rot_x, rot_y, rot_z, distance);
 
         let promises = objectrows.map(element => {
             return new Promise((resolve, reject) => {
