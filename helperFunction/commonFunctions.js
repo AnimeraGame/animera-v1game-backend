@@ -219,6 +219,19 @@ let commonFunctions = {
         })
     },
 
+    insertSingleRowIgnore: (APIRef,table, object, event) => {
+        return new Promise((resolve, reject) => {
+
+            let sql = 'INSERT IGNORE INTO ' + table + ' SET ?';
+            dbHandler.mysqlQueryPromise(APIRef, event, sql, [object]).then((rows) => {
+                resolve(rows);
+
+            }).catch((error) => {
+                reject(error);
+            });
+        })
+    },
+
     getSingleRowNew: (APIRef,table, keyColoumn, id, event, queryString = '') => {
         return new Promise((resolve, reject) => {
 

@@ -25,7 +25,7 @@ const NodeGeocoder = require('node-geocoder');
 const sqlPool = require('../DB');
 const authenticateController = require('../middleware/authNew.js');
 const userAuth =  require("./userAuth.js");
-const user =  require("./user.js");
+const object =  require("./object.js");
 const authRoute = require('../middleware/authNew.js').auth_route;
 const databaseServices  =  require("./database.js");
 const adminServices  =  require("./admin.js");
@@ -59,7 +59,7 @@ module.exports = {
     sqlPool,
     authenticateController,
     userAuth,
-    user,
+    object,
     authRoute,
     databaseServices,
     adminServices,

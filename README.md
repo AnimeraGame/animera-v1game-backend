@@ -45,6 +45,13 @@ Use these steps to clone from SourceTree, our client for using the repository co
 Now that you're more familiar with your Github repository, go ahead and add a new file locally. You can [push your change back to Github with Github Desktop or SourceTree](https://confluence.atlassian.com/x/iqyBMg), or you can [add, commit,](https://confluence.atlassian.com/x/8QhODQ) and [push from the command line](https://confluence.atlassian.com/x/NQ0zDQ).
 
 
+## Database configration
+1. Edit the host, username and password in ./database.json and ./.env files.
+2. Install db-migrate package
+**npm install -g db-migrate**
+3. Execute the migrations by using db-migrate command
+**db-migrate up**
+
 ## Deployment
 a.)  You need to install the LAMP server, node and pm2 for starting a new apex server.
 1. Clone the repo:

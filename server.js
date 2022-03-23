@@ -20,12 +20,29 @@ const path = require('path');
 
 let http = require('http').Server(app);
 
+const corsOpts = {
+    origin: '*',
+
+    methods: [
+        'GET',
+        'POST',
+        'PUT',
+    ],
+
+    allowedHeaders: [
+        'Content-Type',
+    ],
+};
+  
+app.use(cors(corsOpts));
+
 const PORT = config.PORT || 3001;
 app.use(bodyParser.urlencoded({
     extended: false
 }));
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(function(req, res, next) {
     let json = res.json;
