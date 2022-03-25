@@ -137,12 +137,12 @@ routes.get('/add_object_json', async (req, res) => {
             object.audio_loop = game.loop;
             object.audio_volume = game.volume;
             object.audio_pitch = game.pitch;
-            object.bound_center_x = game.Bount_Center ? game.Bound_Center.x : null;
-            object.bound_center_y = game.Bount_Center ? game.Bound_Center.y : null;
-            object.bound_center_z = game.Bount_Center ? game.Bound_Center.z : null;
-            object.bound_size_x = game.Bount_Size ? game.Bount_Size.x : null;
-            object.bound_size_y = game.Bount_Size ? game.Bount_Size.y : null;
-            object.bound_size_z = game.Bount_Size ? game.Bount_Size.z : null;
+            object.bound_center_x = game.Bound_Center ? game.Bound_Center.x : null;
+            object.bound_center_y = game.Bound_Center ? game.Bound_Center.y : null;
+            object.bound_center_z = game.Bound_Center ? game.Bound_Center.z : null;
+            object.bound_size_x = game.Bound_Size ? game.Bound_Size.x : null;
+            object.bound_size_y = game.Bound_Size ? game.Bound_Size.y : null;
+            object.bound_size_z = game.Bound_Size ? game.Bound_Size.z : null;
             await commonFunctions.insertSingleRowIgnore(APIRef, 'object', object, 'Insert object');
         }
         return responses.actionCompleteResponse(res, languageCode, {}, "ACTION_COMPLETE", constants.responseMessageCode.ACTION_COMPLETE);
