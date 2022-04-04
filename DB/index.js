@@ -1,5 +1,4 @@
 const mysql = require('mysql');
-const environmentConfig = require('../config.json')[process.env.NODE_ENV];
 const logger = require('../helperFunction/logger.js');
 
 exports.mysqlQueryPromise = mysqlQueryPromise;
