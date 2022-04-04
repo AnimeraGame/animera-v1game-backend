@@ -16,8 +16,6 @@ const logger = require('./helperFunction/logger.js');
 const config = require('./config/index');
 const path = require('path');
 
-// var server = https.createServer(app);
-
 let http = require('http').Server(app);
 
 const corsOpts = {
@@ -55,17 +53,9 @@ app.use(function(req, res, next) {
 
 app.use('', routeController());
 
-// server.listen(config.HTTPS_PORT, function() {
-//     console.log('secure connection established at port ', config.HTTPS_PORT);
-// });
-
 http.listen(PORT, function () {
     console.log(`connection established for app ${config.APP_NAME} for ${config.NODE_ENV} environment on port ${PORT}`);
 });
-
-// server.listen(PORT, function() {
-//     console.log(`secure connection established for app ${config.APP_NAME} for ${config.NODE_ENV} environment on port ${PORT}`);
-// });
 
 if (process.listenerCount('warning') === 1) {
     process.removeAllListeners('warning');
