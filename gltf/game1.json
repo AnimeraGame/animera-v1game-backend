@@ -1,0 +1,78 @@
+[
+{ 
+	"Entity_ID": "entity84200", 
+	"Entity_Name": "Red ScFi", 
+	"Position": { 
+		"x": 0, "y": 0, "z": 0 
+	}, 
+	"Rotation": { 
+		"x": 0, "y": 0, "z": 0, "w": 1 
+	}, 
+	"Scale": { 
+		"x": 1, "y": 1, "z": 1 
+	}
+},
+{ 
+	"Entity_ID": "entity44762", 
+	"Entity_Name": "SM_Bld_Door_Single_04 (4)", 
+	"Parent_ID": "entity84200", 
+	"Position": { 
+		"x": 0, "y": 1.875, "z": 200 
+	}, 
+	"Rotation": { 
+		"x": 0, "y": 0, "z": 0, "w": 1 
+	}, 
+	"Scale": { 
+		"x": 1, "y": 1, "z": 1 
+	}, 
+	"Bound_Center": { 
+		"x": 0.0002331734, "y": 3.12968, "z": 199.9998 
+	},
+	"Bound_Size": { 
+		"x": 2.705426, "y": 3.109359, "z": 0.6493931 
+	},
+	"Shape": "GLTFShape",
+	"GLTF_Path": "./unity_assets/entity44762.gltf",
+	"DoorController": {
+		"Bound_Center": { 
+		"x": 0.0002331734, "y": 1.25468, "z": -0.2129669 
+		},
+		"Bound_Size": { 
+		"x": 2.705426, "y": 3.109359, "z": 7.069458 
+		},
+		"Door_List": [ 
+			{ 
+				"Door_Entity_Name": "SM_Bld_Door_Single_04_Door_01", 
+				"OpenPos": {
+		"x": 1.88, "y": 0, "z": 0 
+				},
+				"ClosePos": {
+		"x": 0.9655901, "y": 0, "z": 0 
+				}
+			}, 
+			{ 
+				"Door_Entity_Name": "SM_Bld_Door_Single_04_Door_02", 
+				"OpenPos": {
+		"x": -1.88, "y": 0, "z": 0 
+				},
+				"ClosePos": {
+		"x": -0.9655901, "y": 0, "z": 0 
+				}
+			}, 
+			{ 
+				"Door_Entity_Name": "SM_Bld_Door_Single_04_Door_03", 
+				"OpenPos": {
+		"x": 0, "y": 4, "z": 0 
+				},
+				"ClosePos": {
+		"x": 0, "y": 2.699279, "z": 0 
+				}
+			}
+		]
+	},
+	"GLTF_Rotation": { 
+		"x": 0, "y": 1, "z": 0, "w": -4.371139E-08 
+	}
+}
+
+]

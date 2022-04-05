@@ -46,6 +46,9 @@ routes.get('/get_object_nearby', objectValidator.getObjectNearby, async (req, re
 
         let promises = objectrows.map(element => {
             return new Promise((resolve, reject) => {
+                if (element.door_controller) {
+                    element.door_controller = JSON.parse(element.door_controller);
+                }
                 let material_id = element.material_id;
                 if(material_id){
                     commonFunctions.getSingleRowNew(APIRef, 'material', 'material_id', material_id, 'getObjectMaterial').then((objectMaterial) => {
@@ -143,6 +146,9 @@ routes.get('/add_object_json', async (req, res) => {
             object.bound_size_x = game.Bound_Size ? game.Bound_Size.x : null;
             object.bound_size_y = game.Bound_Size ? game.Bound_Size.y : null;
             object.bound_size_z = game.Bound_Size ? game.Bound_Size.z : null;
+            if (game.DoorController) {
+                object.door_controller = JSON.stringify(game.DoorController);
+            }
             await commonFunctions.insertSingleRowIgnore(APIRef, 'object', object, 'Insert object');
         }
         return responses.actionCompleteResponse(res, languageCode, {}, "ACTION_COMPLETE", constants.responseMessageCode.ACTION_COMPLETE);
