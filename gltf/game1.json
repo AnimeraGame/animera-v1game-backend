@@ -32,7 +32,7 @@
 		"x": 2.705426, "y": 3.109359, "z": 0.6493931 
 	},
 	"Shape": "GLTFShape",
-	"GLTF_Path": "./unity_assets/entity44762.gltf",
+	"GLTF_Path": "./unity_assets/entity44762.glb",
 	"DoorController": {
 		"Bound_Center": { 
 		"x": 0.0002331734, "y": 1.25468, "z": -0.2129669 
