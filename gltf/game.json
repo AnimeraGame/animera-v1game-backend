@@ -13540,10 +13540,10 @@
 			{ 
 				"Door_Entity_Name": "SM_Bld_Door_Single_01_Door_01", 
 				"OpenPos": {
-		"x": 0, "y": 0, "z": 0 
+		"x": 0.7277987, "y": 0, "z": 0 
 				},
 				"ClosePos": {
-		"x": 0, "y": 0, "z": 0 
+		"x": 0.7277987, "y": 0, "z": 0 
 				},
 				"OpenRot": {
 		"x": 0, "y": -90, "z": 0 
@@ -14032,10 +14032,10 @@
 			{ 
 				"Door_Entity_Name": "SM_Bld_Door_Single_01_Door_01", 
 				"OpenPos": {
-		"x": 0, "y": 0, "z": 0 
+		"x": 0.7277987, "y": 0, "z": 0 
 				},
 				"ClosePos": {
-		"x": 0, "y": 0, "z": 0 
+		"x": 0.7277987, "y": 0, "z": 0 
 				},
 				"OpenRot": {
 		"x": 0, "y": 90, "z": 0 
@@ -14383,10 +14383,10 @@
 			{ 
 				"Door_Entity_Name": "SM_Bld_Door_Single_01_Door_01", 
 				"OpenPos": {
-		"x": 0, "y": 0, "z": 0 
+		"x": 0.7277987, "y": 0, "z": 0 
 				},
 				"ClosePos": {
-		"x": 0, "y": 0, "z": 0 
+		"x": 0.7277987, "y": 0, "z": 0 
 				},
 				"OpenRot": {
 		"x": 0, "y": 90, "z": 0 
@@ -17647,10 +17647,10 @@
 			{ 
 				"Door_Entity_Name": "SM_Bld_Door_Single_01_Door_01", 
 				"OpenPos": {
-		"x": 0, "y": 0, "z": 0 
+		"x": 0.7277987, "y": 0, "z": 0 
 				},
 				"ClosePos": {
-		"x": 0, "y": 0, "z": 0 
+		"x": 0.7277987, "y": 0, "z": 0 
 				},
 				"OpenRot": {
 		"x": 0, "y": 90, "z": 0 
@@ -18014,10 +18014,10 @@
 			{ 
 				"Door_Entity_Name": "SM_Bld_Door_Single_05_Door_01", 
 				"OpenPos": {
-		"x": 0.9, "y": 0, "z": 0 
+		"x": 2.3, "y": 0, "z": 0 
 				},
 				"ClosePos": {
-		"x": 2.3, "y": 0, "z": 0 
+		"x": 0.9, "y": 0, "z": 0 
 				},
 				"OpenRot": {
 		"x": 0, "y": 0, "z": 0 
@@ -18140,10 +18140,10 @@
 			{ 
 				"Door_Entity_Name": "SM_Bld_Door_Single_01_Door_01", 
 				"OpenPos": {
-		"x": 0, "y": 0, "z": 0 
+		"x": 0.7277987, "y": 0, "z": 0 
 				},
 				"ClosePos": {
-		"x": 0, "y": 0, "z": 0 
+		"x": 0.7277987, "y": 0, "z": 0 
 				},
 				"OpenRot": {
 		"x": 0, "y": 90, "z": 0 
@@ -19994,10 +19994,10 @@
 			{ 
 				"Door_Entity_Name": "SM_Bld_Door_Single_01_Door_01", 
 				"OpenPos": {
-		"x": 0, "y": 0, "z": 0 
+		"x": 0.7277987, "y": 0, "z": 0 
 				},
 				"ClosePos": {
-		"x": 0, "y": 0, "z": 0 
+		"x": 0.7277987, "y": 0, "z": 0 
 				},
 				"OpenRot": {
 		"x": 0, "y": 90, "z": 0 
@@ -21417,10 +21417,10 @@
 			{ 
 				"Door_Entity_Name": "SM_Bld_Door_Single_01_Door_01", 
 				"OpenPos": {
-		"x": 0, "y": 0, "z": 0 
+		"x": 0.7277987, "y": 0, "z": 0 
 				},
 				"ClosePos": {
-		"x": 0, "y": 0, "z": 0 
+		"x": 0.7277987, "y": 0, "z": 0 
 				},
 				"OpenRot": {
 		"x": 0, "y": 90, "z": 0 
