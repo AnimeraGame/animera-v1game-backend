@@ -15,6 +15,7 @@ const routeController = require('./controller');
 const logger = require('./helperFunction/logger.js');
 const config = require('./config/index');
 const path = require('path');
+const compression = require('compression');
 
 let http = require('http').Server(app);
 
@@ -33,6 +34,7 @@ const corsOpts = {
 };
   
 app.use(cors(corsOpts));
+app.use(compression());
 
 const PORT = config.PORT || 3001;
 app.use(bodyParser.urlencoded({
