@@ -7,8 +7,8 @@ let objectFunctions = {
 
     getObjectNearby: (pos_x, pos_y, pos_z, rot_x, rot_y, rot_z, distance) => {
         return new Promise((resolve, reject) => {
-            let query = `SELECT  DISTINCT o.*, (SQRT((o.position_x - ?)*(o.position_x - ?) + (o.position_y - ?)*(o.position_y - ?) + (o.position_z - ?)*(o.position_z - ?)) - SQRT(o.bound_size_x * o.bound_size_x + o.bound_size_y * o.bound_size_y + o.bound_size_z * o.bound_size_z) / 2) AS distance FROM object as o HAVING distance < ? ORDER BY distance ASC`;
-            dbHandler.mysqlQueryPromise(APIRef, 'getObjectNearby', query, [pos_x, pos_x, pos_y, pos_y, pos_z, pos_z, distance]).then((objectrows) => {
+            let query = `SELECT  DISTINCT o.*, (SQRT((o.position_x - ?)*(o.position_x - ?) + (o.position_z - ?)*(o.position_z - ?)) - SQRT(o.bound_size_x * o.bound_size_x + o.bound_size_z * o.bound_size_z) / 2) AS distance FROM object as o HAVING distance < ? ORDER BY distance ASC`;
+            dbHandler.mysqlQueryPromise(APIRef, 'getObjectNearby', query, [pos_x, pos_x, pos_z, pos_z, distance]).then((objectrows) => {
                 resolve(objectrows);
             }).catch((error) => {
                 reject(error);
