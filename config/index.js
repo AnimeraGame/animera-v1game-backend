@@ -5,4 +5,6 @@ module.exports = {
   PORT: process.env.PORT,
   HTTPS_PORT: process.env.HTTPS_PORT,
   APP_NAME: process.env.APP_NAME,
+  redisPort: process.env.redisPort,
+  redisHost: process.env.redisHost,
 };

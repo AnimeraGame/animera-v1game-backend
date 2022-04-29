@@ -36,6 +36,17 @@ const corsOpts = {
 app.use(cors(corsOpts));
 app.use(compression());
 
+// const ioServer = require('socket.io');
+// let io = new ioServer();
+// io.pingTimeout = 60000;
+// // io.attach(http);
+// io.attach(http);
+// let redis = require('socket.io-redis');
+// io.adapter(redis({host: config.redisHost, port: config.redisPort}));
+
+// let socketChat = require('./controller/socketEvents.js')(io);
+// app.use('/newChat', socketChat);
+
 const PORT = config.PORT || 3001;
 app.use(bodyParser.urlencoded({
     extended: false
