@@ -6,7 +6,7 @@ let raceFunctions = {
 
     getAvailableRaces: () => {
         return new Promise((resolve, reject) => {
-            let query = `SELECT *, , UNIX_TIMESTAMP(race.start_time + INTERVAL 10 MINUTE) - UNIX_TIMESTAMP(NOW()) AS time_left FROM race WHERE start_time >= NOW() - INTERVAL 10 MINUTE`;
+            let query = `SELECT *, UNIX_TIMESTAMP(race.start_time + INTERVAL 10 MINUTE) - UNIX_TIMESTAMP(NOW()) AS time_left FROM race WHERE start_time >= NOW() - INTERVAL 10 MINUTE`;
             dbHandler.mysqlQueryPromise(APIRef, 'getRaceList', query, []).then((raceRows) => {
                 resolve(raceRows);
             }).catch((error) => {
